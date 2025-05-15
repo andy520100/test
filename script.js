@@ -10,7 +10,7 @@ window.addEventListener("beforeinstallprompt", (e) => {
 
 function isDeferredNotNull() {
 const isIos = /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
-const isStandalone = navigator.standalone === true;
+const isStandalone = navigator.standalone === false;
 if(isIos) return isStandalone;
   return deferredPrompt != null;
 }
