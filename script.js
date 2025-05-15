@@ -9,8 +9,14 @@ window.addEventListener("beforeinstallprompt", (e) => {
 });
 
 function isDeferredNotNull() {
+const isIos = /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
+const isStandalone = navigator.standalone === true;
+if(isIos) return isStandalone;
   return deferredPrompt != null;
 }
+
+
+
 
 function presentAddToHome() {
   if (deferredPrompt != null) {
