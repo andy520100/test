@@ -12,6 +12,7 @@
     For more details:
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
   -->
+  <base href="/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -33,7 +34,7 @@
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
   <script>
-    const serviceWorkerVersion = "938486923";
+    var serviceWorkerVersion = "1123226753";
     var scriptLoaded = false;
     function loadMainDartJs() {
       if (scriptLoaded) {
@@ -58,7 +59,7 @@
           // Registration was successful
           console.log('CustomServiceWorker registration successful with scope: ', registration.scope);
         }, function (err) {
-          // registration failed 
+          // registration failed
           console.log('CustomServiceWorker registration failed: ', err);
         });
 
