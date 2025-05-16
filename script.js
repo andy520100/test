@@ -1,5 +1,5 @@
 let deferredPrompt;
-
+const isIos = /iphone|ipad|ipod/.test(navigator.userAgent);
 // add to homescreen
 window.addEventListener("beforeinstallprompt", (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
@@ -18,13 +18,14 @@ function getData(key) {
   return localStorage.getItem(key)==='true' || false;
 }
 
+function isIOS() {
+  return isIos;
+}
 
 function isDeferredNotNull() {
 //+++++
 ///ios 不支援 deferredPrompt
-const isIos = /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
-const isStandalone = navigator.standalone === false;
-if(isIos) return isStandalone;
+if(isIos) return navigator.standalone === false;
 //+++++
 
   return deferredPrompt != null;
@@ -45,7 +46,7 @@ function presentAddToHome() {
     // Wait for the user to respond to the prompt
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === "accepted") {
-      setData('showWap','true');
+        //setData('showWap','true'); //安裝過不再顯示，但如果被移除後也一樣不顯示
         console.log("User accepted the A2HS prompt");
       } else {
         console.log("User dismissed the A2HS prompt");
