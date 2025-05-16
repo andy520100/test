@@ -8,11 +8,30 @@ window.addEventListener("beforeinstallprompt", (e) => {
   deferredPrompt = e;
 });
 
+// Set data
+function setData(key, value) {
+  localStorage.setItem(key, value);
+}
+
+// Get data from localStorage
+function getData(key) {
+  return localStorage.getItem(key)==='true' || false;
+}
+
+
 function isDeferredNotNull() {
+//+++++
+///ios 不支援 deferredPrompt
 const isIos = /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
 const isStandalone = navigator.standalone === false;
 if(isIos) return isStandalone;
+//+++++
+
   return deferredPrompt != null;
+}
+
+function isDeferredPrompt(){
+return deferredPrompt;
 }
 
 
@@ -26,6 +45,7 @@ function presentAddToHome() {
     // Wait for the user to respond to the prompt
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === "accepted") {
+      setData('showWap','true');
         console.log("User accepted the A2HS prompt");
       } else {
         console.log("User dismissed the A2HS prompt");
