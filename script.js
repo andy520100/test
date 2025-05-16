@@ -1,5 +1,5 @@
 let deferredPrompt;
-const isIos = /iphone|ipad|ipod/.test(navigator.userAgent);
+const isIos = /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
 // add to homescreen
 window.addEventListener("beforeinstallprompt", (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
@@ -21,6 +21,17 @@ function getData(key) {
 function isIOS() {
   return isIos;
 }
+
+//function isDeferredNotNull() {
+////+++++
+/////ios 不支援 deferredPrompt
+//const isIos = /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
+//const isStandalone = navigator.standalone === false;
+//if(isIos) return isStandalone;
+////+++++
+//
+//  return deferredPrompt != null;
+//}
 
 function isDeferredNotNull() {
 //+++++
