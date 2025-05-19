@@ -77,7 +77,7 @@ async function toShare() {
   ];
   const shareData ={files: filesArray}
 
-  if(navigator.canShare && navigator.canShare(shareData)){
+  if(navigator.canShare() && navigator.canShare(shareData)){
     await navigator.share(shareData);
     return true;
   }else{

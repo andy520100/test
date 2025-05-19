@@ -53112,24 +53112,13 @@ dw(a,b,c){var s=this.a
 if(c?J.hu(s,b):J.jN(s,b))this.aG()}}
 A.Ja.prototype={}
 A.Pt.prototype={
-qc(){var s=0,r=A.V(t.z),q=1,p=[],o,n,m
-var $async$qc=A.W(function(a,b){if(a===1){p.push(b)
-s=q}while(true)switch(s){case 0:q=3
-s=6
+qc(){var s=0,r=A.V(t.z),q
+var $async$qc=A.W(function(a,b){if(a===1)return A.S(b,r)
+while(true)switch(s){case 0:q=A
+s=2
 return A.a_(A.fz(self.toShare(),t.X),$async$qc)
-case 6:o=b
-A.wG(o)
-q=1
-s=5
-break
-case 3:q=2
-m=p.pop()
-s=5
-break
-case 2:s=1
-break
-case 5:return A.T(null,r)
-case 1:return A.S(p.at(-1),r)}})
+case 2:q.wG(b)
+return A.T(null,r)}})
 return A.U($async$qc,r)}}
 A.A8.prototype={
 N(a){var s=null
