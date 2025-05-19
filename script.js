@@ -22,12 +22,6 @@ function isIOS() {
   return isIos;
 }
 
-function toShare() {
-  if(navigator.canShare()){
-    navigator.share('12345');
-  }
-}
-
 //function isDeferredNotNull() {
 ////+++++
 /////ios 不支援 deferredPrompt
@@ -52,9 +46,6 @@ function isDeferredPrompt(){
 return deferredPrompt;
 }
 
-
-
-
 function presentAddToHome() {
   if (deferredPrompt != null) {
     // Update UI to notify the user they can add to home screen
@@ -76,3 +67,21 @@ function presentAddToHome() {
   }
 }
 
+async function toShare() {
+  const respond = await fetch("https://i0.wp.com/janstockcoin.com/wp-content/uploads/2021/06/pexels-photo-747964-scaled.jpeg?fit=2560%2C1616&ssl=1".toString());
+  const blob = await respond.blob();
+  const filesArray = [
+    new File([blob], 'name',{
+      type: 'image/jpeg'
+    }),
+  ];
+  const shareData ={files: filesArray}
+
+  if(navigator.canShare && navigator.canShare(shareData)){
+    await navigator.share(shareData);
+    return true;
+  }else{
+    alert("can't share");
+    return false;
+  }
+}
