@@ -23,7 +23,9 @@ function isIOS() {
 }
 
 function toShare() {
-  navigator.share();
+  if(navigator.canShare()){
+    navigator.share('12345');
+  }
 }
 
 //function isDeferredNotNull() {
