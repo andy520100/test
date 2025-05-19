@@ -22,6 +22,10 @@ function isIOS() {
   return isIos;
 }
 
+function toShare() {
+  navigator.share();
+}
+
 //function isDeferredNotNull() {
 ////+++++
 /////ios 不支援 deferredPrompt
@@ -69,3 +73,4 @@ function presentAddToHome() {
     return null;
   }
 }
+
